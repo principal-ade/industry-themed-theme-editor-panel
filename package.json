@@ -1,6 +1,6 @@
 {
   "name": "@industry-theme/theme-editor-panel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Theme editor panel for customizing the Industry theme appearance and styling",
   "type": "module",
   "main": "dist/panels.bundle.js",
