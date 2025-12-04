@@ -1,5 +1,6 @@
 import { ThemeEditorPanel } from './panels/ThemeEditorPanel';
 import type { PanelDefinition, PanelContextValue } from './types';
+import { themeEditorTools } from './tools';
 
 /**
  * Export array of panel definitions.
@@ -15,6 +16,7 @@ export const panels: PanelDefinition[] = [
       author: 'Principal ADE',
       description: 'Customize Industry theme colors and appearance',
       slices: [], // This panel doesn't need data slices
+      tools: themeEditorTools,
     },
     component: ThemeEditorPanel,
 
@@ -41,7 +43,7 @@ export const panels: PanelDefinition[] = [
  */
 export const onPackageLoad = async () => {
   // eslint-disable-next-line no-console
-  console.log('Panel package loaded - Example Panel Extension');
+  console.log('Panel package loaded - Theme Editor Panel Extension');
 };
 
 /**
@@ -50,5 +52,15 @@ export const onPackageLoad = async () => {
  */
 export const onPackageUnload = async () => {
   // eslint-disable-next-line no-console
-  console.log('Panel package unloading - Example Panel Extension');
+  console.log('Panel package unloading - Theme Editor Panel Extension');
 };
+
+// Export tools for server-safe imports
+export {
+  themeEditorTools,
+  themeEditorToolsMetadata,
+  setThemeColorTool,
+  resetThemeTool,
+  applyThemePresetTool,
+  exportThemeTool,
+} from './tools';

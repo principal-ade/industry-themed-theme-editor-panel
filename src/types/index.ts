@@ -33,4 +33,10 @@ export type {
   PanelRegistryEntry,
   PanelLoader,
   PanelRegistryConfig,
+
+  // Tool types (UTCP-compatible)
+  PanelTool,
+  PanelToolsMetadata,
+  JsonSchema,
+  PanelEventCallTemplate,
 } from '@principal-ade/panel-framework-core';
