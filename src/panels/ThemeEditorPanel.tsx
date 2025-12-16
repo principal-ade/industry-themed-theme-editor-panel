@@ -210,21 +210,29 @@ const ThemeEditorPanelContent: React.FC<ThemeEditorPanelContentProps> = ({
         position: 'relative',
       }}
     >
-      {/* Header - Fixed */}
+      {/* Header - Fixed 40px including border */}
       <div
         style={{
-          padding: '20px',
+          height: '40px',
+          minHeight: '40px',
+          maxHeight: '40px',
+          paddingLeft: '12px',
+          paddingRight: '12px',
           borderBottom: `1px solid ${theme.colors.border}`,
-          flex: '0 0 auto',
+          flex: '0 0 40px',
+          display: 'flex',
+          alignItems: 'center',
+          boxSizing: 'border-box',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <Palette size={24} color={theme.colors.primary} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'space-between', width: '100%' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Palette size={18} color={theme.colors.primary} />
             <h2
               style={{
                 margin: 0,
-                fontSize: theme.fontSizes[4],
+                fontSize: theme.fontSizes[2],
+                fontWeight: 600,
                 color: theme.colors.text,
               }}
             >
@@ -238,20 +246,21 @@ const ThemeEditorPanelContent: React.FC<ThemeEditorPanelContentProps> = ({
               <button
                 onClick={() => setPresetDropdownOpen(!presetDropdownOpen)}
                 style={{
-                  padding: '8px 12px',
-                  borderRadius: '6px',
+                  padding: '4px 8px',
+                  borderRadius: '4px',
                   border: `1px solid ${theme.colors.border}`,
                   backgroundColor: presetDropdownOpen ? theme.colors.backgroundSecondary : theme.colors.background,
                   color: theme.colors.text,
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
+                  gap: '6px',
                   fontSize: theme.fontSizes[1],
                   fontFamily: theme.fonts.body,
                   transition: 'all 0.15s',
-                  minWidth: '140px',
+                  minWidth: '120px',
                   justifyContent: 'space-between',
+                  height: '28px',
                 }}
                 onMouseEnter={(e) => {
                   if (!presetDropdownOpen) {
@@ -361,8 +370,8 @@ const ThemeEditorPanelContent: React.FC<ThemeEditorPanelContentProps> = ({
               onClick={() => setShowHelp(!showHelp)}
               title="Help"
               style={{
-                padding: '8px',
-                borderRadius: '6px',
+                padding: '4px',
+                borderRadius: '4px',
                 border: `1px solid ${theme.colors.border}`,
                 backgroundColor: showHelp ? theme.colors.backgroundSecondary : theme.colors.background,
                 color: theme.colors.text,
@@ -371,6 +380,8 @@ const ThemeEditorPanelContent: React.FC<ThemeEditorPanelContentProps> = ({
                 alignItems: 'center',
                 justifyContent: 'center',
                 transition: 'all 0.15s',
+                width: '28px',
+                height: '28px',
               }}
               onMouseEnter={(e) => {
                 if (!showHelp) {
@@ -383,7 +394,7 @@ const ThemeEditorPanelContent: React.FC<ThemeEditorPanelContentProps> = ({
                 }
               }}
             >
-              <HelpCircle size={18} />
+              <HelpCircle size={16} />
             </button>
           </div>
         </div>
