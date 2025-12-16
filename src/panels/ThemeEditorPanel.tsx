@@ -459,12 +459,29 @@ export const ThemeEditorPanel: React.FC<PanelComponentProps> = (props) => {
 
   const currentTheme = THEME_PRESETS.find((p) => p.name === selectedPreset)?.theme ?? terminalTheme;
 
+  const handlePresetSelect = (presetName: string) => {
+    setSelectedPreset(presetName);
+    const preset = THEME_PRESETS.find((p) => p.name === presetName);
+    if (preset && props.events) {
+      // Emit event for the host app to update global theme
+      props.events.emit({
+        type: 'theme:set-preset',
+        source: 'industry-theme.theme-editor',
+        timestamp: Date.now(),
+        payload: {
+          presetName: preset.name,
+          presetLabel: preset.label,
+        },
+      });
+    }
+  };
+
   return (
     <ThemeProvider theme={currentTheme}>
       <ThemeEditorPanelContent
         {...props}
         selectedPreset={selectedPreset}
-        onPresetSelect={setSelectedPreset}
+        onPresetSelect={handlePresetSelect}
       />
     </ThemeProvider>
   );
