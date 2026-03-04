@@ -15,7 +15,7 @@ import {
   type Theme,
 } from '@principal-ade/industry-theme';
 import { Palette, HelpCircle, ChevronDown } from 'lucide-react';
-import type { PanelComponentProps } from '../types';
+import type { ThemeEditorPanelPropsTyped } from '../types';
 import { ColorPickerInput } from '../components/ColorPickerInput';
 
 /**
@@ -138,7 +138,7 @@ const COLOR_GROUPS: Record<string, ColorConfig[]> = {
   ],
 };
 
-interface ThemeEditorPanelContentProps extends PanelComponentProps {
+interface ThemeEditorPanelContentProps extends ThemeEditorPanelPropsTyped {
   selectedPreset: string;
   onPresetSelect: (presetName: string) => void;
 }
@@ -465,7 +465,7 @@ const ThemeEditorPanelContent: React.FC<ThemeEditorPanelContentProps> = ({
  * - Reset individual colors to defaults
  * - Save theme customizations
  */
-export const ThemeEditorPanel: React.FC<PanelComponentProps> = (props) => {
+export const ThemeEditorPanel: React.FC<ThemeEditorPanelPropsTyped> = (props) => {
   const [selectedPreset, setSelectedPreset] = useState<string>('terminal');
 
   const currentTheme = THEME_PRESETS.find((p) => p.name === selectedPreset)?.theme ?? terminalTheme;

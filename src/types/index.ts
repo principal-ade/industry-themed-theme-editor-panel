@@ -40,3 +40,22 @@ export type {
   JsonSchema,
   PanelEventCallTemplate,
 } from '@principal-ade/panel-framework-core';
+
+import type {
+  PanelActions as CorePanelActions,
+  PanelComponentProps as CorePanelComponentProps,
+} from '@principal-ade/panel-framework-core';
+
+/**
+ * Empty context for ThemeEditorPanel
+ * This panel doesn't use any data slices - it only uses the useTheme hook
+ */
+export interface ThemeEditorPanelContext {}
+
+/**
+ * Typed props for ThemeEditorPanel
+ */
+export type ThemeEditorPanelPropsTyped = CorePanelComponentProps<
+  CorePanelActions,
+  ThemeEditorPanelContext
+>;

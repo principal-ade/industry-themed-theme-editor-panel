@@ -1,12 +1,13 @@
 import { ThemeEditorPanel } from './panels/ThemeEditorPanel';
-import type { PanelDefinition, PanelContextValue } from './types';
+import type { PanelContextValue } from './types';
+import type { PanelDefinition } from '@principal-ade/panel-framework-core';
 import { themeEditorTools } from './tools';
 
 /**
  * Export array of panel definitions.
  * This is the required export for panel extensions.
  */
-export const panels: PanelDefinition[] = [
+export const panels: PanelDefinition<any, any>[] = [
   {
     metadata: {
       id: 'industry-theme.theme-editor',
